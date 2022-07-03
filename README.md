@@ -3,6 +3,8 @@
 
 Тема практики: разработка информационной системы "Производственная практика в компании" с использованием фреймворка Jmix.
 
-#### Ссылки:
+### Ссылки:
 
-- [Trello](https://trello.com/b/Bp0sdlfY/practice-management).
+- [Trello](https://trello.com/b/Bp0sdlfY/practice-management);
+- [Задание 13](https://docs.google.com/document/d/e/2PACX-1vTpbehR300JOUVRq3p0xOO7NkupVZtZ7daSvl-0izTqz4LCvgf0aVvPmPK0wh5x4_LMYOOTAxXGxRPn/pub);
+- [Общие требования](https://docs.google.com/document/d/e/2PACX-1vTUXNieOKd33ovNaEr6YI2QDZIZab3brt_hrlrHg_ohAddLYvRuJCZ-gcX-pl_qi86CoLn3lOn6Nk4N/pub).
