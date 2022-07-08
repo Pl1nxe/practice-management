@@ -8,7 +8,13 @@
             <map>
               <entry key="main">
                 <value>
-                  <DataStoreSettings />
+                  <DataStoreSettings>
+                    <option name="generateDdlType" value="CREATE_AND_UPDATE" />
+                    <option name="nameLengthMode" value="POSTGRES" />
+                    <option name="supportedTypes">
+                      <option value="postgres" />
+                    </option>
+                  </DataStoreSettings>
                 </value>
               </entry>
             </map>
@@ -16,5 +22,26 @@
         </ModuleSettings>
       </entry>
     </moduleSettings>
+  </component>
+  <component name="JmixPluginProjectSettings">
+    <option name="savedDbProperties">
+      <list>
+        <SavedDbProperties>
+          <option name="databaseName" value="practicemanagementjmixproject" />
+          <option name="dbType" value="hsqlfile" />
+          <option name="dbmsVersion" />
+          <option name="host" value=".jmix/hsqldb" />
+          <option name="url" value="jdbc:hsqldb:file:.jmix/hsqldb/practicemanagementjmixproject" />
+          <option name="user" value="sa" />
+        </SavedDbProperties>
+      </list>
+    </option>
+  </component>
+  <component name="VersionUpdateSettings">
+    <option name="ignoredVersions">
+      <set>
+        <option value="1.3" />
+      </set>
+    </option>
   </component>
 </project>

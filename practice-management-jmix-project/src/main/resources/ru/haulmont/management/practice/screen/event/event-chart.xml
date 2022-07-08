@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://jmix.io/schema/ui/fragment">
+    <data>
+        <instance id="eventDc"
+                  class="ru.haulmont.management.practice.entity.Event">
+            <fetchPlan extends="_base">
+                <property name="students" fetchPlan="_base"/>
+            </fetchPlan>
+            <loader/>
+            <collection id="studentsDc" property="students"/>
+        </instance>
+    </data>
+    <layout>
+    </layout>
+</fragment>
+

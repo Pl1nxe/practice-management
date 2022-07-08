@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://eventEdit.caption"
+        focusComponent="form">
+    <data>
+        <instance id="eventDc"
+                  class="ru.haulmont.management.practice.entity.Event">
+            <fetchPlan extends="_base">
+                <property name="students" fetchPlan="_base"/>
+            </fetchPlan>
+            <loader/>
+            <collection id="studentsDc" property="students"/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="windowCommitAndClose" caption="msg:///actions.Ok"
+                icon="EDITOR_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="windowClose"
+                caption="msg:///actions.Close"
+                icon="EDITOR_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true" expand="scrollBox">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="eventDc">
+                <column width="350px">
+                    <comboBox id="formatField" property="format"/>
+                    <textField id="descriptionField" property="description"/>
+                    <textField id="locationField" property="location"/>
+                    <dateField id="startDateField" property="startDate"/>
+                    <dateField id="endDateField" property="endDate"/>
+                </column>
+            </form>
+            <groupBox id="studentsBox" caption="msg://ru.haulmont.management.practice.entity/Event.students">
+                <table id="studentsTable" dataContainer="studentsDc" width="100%" height="200px">
+                    <actions>
+                        <action id="add" type="add"/>
+                        <action id="exclude" type="exclude"/>
+                    </actions>
+                    <columns>
+                        <column id="fullName"/>
+                        <column id="practicalTask"/>
+                        <column id="university"/>
+                        <column id="specialization"/>
+                        <column id="group"/>
+                        <column id="startDate"/>
+                        <column id="endDate"/>
+                    </columns>
+                    <buttonsPanel>
+                        <button action="studentsTable.add"/>
+                        <button action="studentsTable.exclude"/>
+                    </buttonsPanel>
+                </table>
+            </groupBox>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

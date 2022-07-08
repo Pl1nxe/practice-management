@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        xmlns:c="http://jmix.io/schema/ui/jpql-condition"
+        caption="msg://studentBrowse.caption"
+        focusComponent="studentsTable">
+    <data readOnly="true">
+        <collection id="studentsDc"
+                    class="ru.haulmont.management.practice.entity.Student">
+            <fetchPlan extends="_base"/>
+            <loader id="studentsDl">
+                <query>
+                    <![CDATA[select e from Student e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="lookupSelectAction"
+                caption="msg:///actions.Select"
+                icon="LOOKUP_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="lookupCancelAction"
+                caption="msg:///actions.Cancel"
+                icon="LOOKUP_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="studentsTable" spacing="true">
+        <filter id="filter"
+                dataLoader="studentsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="studentsTable"
+                    width="100%"
+                    dataContainer="studentsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="practicalTask" caption="File"/>
+                <column id="fullName"/>
+                <column id="university"/>
+                <column id="specialization"/>
+                <column id="group"/>
+                <column id="startDate"/>
+                <column id="endDate"/>
+            </columns>
+            <simplePagination/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="studentsTable.create"/>
+                <button id="editBtn" action="studentsTable.edit"/>
+                <button id="removeBtn" action="studentsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
