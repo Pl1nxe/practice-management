@@ -25,7 +25,6 @@ dependencies {
     implementation 'io.jmix.ui:jmix-ui-starter'
     implementation 'io.jmix.ui:jmix-ui-data-starter'
     implementation 'io.jmix.ui:jmix-ui-themes-compiled'
-    implementation 'io.jmix.ui:jmix-ui-widgets-compiled'
     implementation 'io.jmix.security:jmix-security-starter'
     implementation 'io.jmix.security:jmix-security-ui-starter'
     implementation 'io.jmix.security:jmix-security-data-starter'
@@ -41,8 +40,16 @@ dependencies {
     }
     implementation 'org.postgresql:postgresql'
     implementation 'io.jmix.translations:jmix-translations-ru'
+    widgets 'io.jmix.ui:jmix-charts-widgets'
+    implementation 'io.jmix.ui:jmix-charts-starter'
+    widgets 'io.jmix.ui:jmix-ui-widgets'
 }
 
 test {
     useJUnitPlatform()
+}
+
+compileWidgets {
+    generate "ru.haulmont.management.practice.widgets.CustomWidgetSet"
+    includePaths("**/io/jmix/**/widget/**", "**/ru/haulmont/management/practice/widgets/**")
 }

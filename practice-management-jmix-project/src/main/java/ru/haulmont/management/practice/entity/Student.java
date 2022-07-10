@@ -26,7 +26,8 @@ public class Student {
     @Id
     private UUID id;
 
-    @Column(name = "PRACTICAL_TASK", length = 1024)
+    @NotNull
+    @Column(name = "PRACTICAL_TASK", nullable = false, length = 1024)
     private FileRef practicalTask;
 
     @CreatedBy

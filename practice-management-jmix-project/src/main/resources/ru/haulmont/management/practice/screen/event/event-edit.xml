@@ -46,12 +46,9 @@
                     </actions>
                     <columns>
                         <column id="fullName"/>
-                        <column id="practicalTask"/>
                         <column id="university"/>
                         <column id="specialization"/>
                         <column id="group"/>
-                        <column id="startDate"/>
-                        <column id="endDate"/>
                     </columns>
                     <buttonsPanel>
                         <button action="studentsTable.add"/>

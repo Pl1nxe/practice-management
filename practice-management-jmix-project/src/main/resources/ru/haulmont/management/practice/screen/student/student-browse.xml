@@ -44,7 +44,7 @@
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
-                <column id="practicalTask" caption="File"/>
+                <column id="practicalTask"/>
                 <column id="fullName"/>
                 <column id="university"/>
                 <column id="specialization"/>

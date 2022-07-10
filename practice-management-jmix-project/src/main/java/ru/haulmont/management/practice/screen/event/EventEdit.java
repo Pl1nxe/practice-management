@@ -1,5 +1,6 @@
 package ru.haulmont.management.practice.screen.event;
 
+import io.jmix.ui.model.DataContext;
 import io.jmix.ui.screen.*;
 import ru.haulmont.management.practice.entity.Event;
 
