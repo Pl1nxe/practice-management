@@ -31,6 +31,7 @@ dependencies {
     implementation 'io.jmix.localfs:jmix-localfs-starter'
     implementation 'io.jmix.datatools:jmix-datatools-starter'
     implementation 'io.jmix.datatools:jmix-datatools-ui-starter'
+    implementation 'io.jmix.ui:jmix-ui-widgets-compiled'
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
@@ -40,16 +41,16 @@ dependencies {
     }
     implementation 'org.postgresql:postgresql'
     implementation 'io.jmix.translations:jmix-translations-ru'
-    widgets 'io.jmix.ui:jmix-charts-widgets'
-    implementation 'io.jmix.ui:jmix-charts-starter'
-    widgets 'io.jmix.ui:jmix-ui-widgets'
+//    widgets 'io.jmix.ui:jmix-charts-widgets'
+//    implementation 'io.jmix.ui:jmix-charts-starter'
+//    widgets 'io.jmix.ui:jmix-ui-widgets'
 }
 
 test {
     useJUnitPlatform()
 }
 
-compileWidgets {
-    generate "ru.haulmont.management.practice.widgets.CustomWidgetSet"
-    includePaths("**/io/jmix/**/widget/**", "**/ru/haulmont/management/practice/widgets/**")
-}
+//compileWidgets {
+//    generate "ru.haulmont.management.practice.widgets.CustomWidgetSet"
+//    includePaths("**/io/jmix/**/widget/**", "**/ru/haulmont/management/practice/widgets/**")
+//}
