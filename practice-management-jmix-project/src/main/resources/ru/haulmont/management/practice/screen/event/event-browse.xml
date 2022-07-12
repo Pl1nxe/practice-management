@@ -39,7 +39,8 @@
         </filter>
         <groupTable id="eventsTable"
                     width="100%"
-                    dataContainer="eventsDc">
+                    dataContainer="eventsDc"
+                    multiselect="true">
             <actions>
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>

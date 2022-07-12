@@ -39,7 +39,7 @@
                 </column>
             </form>
             <groupBox id="studentsBox" caption="msg://ru.haulmont.management.practice.entity/Event.students">
-                <table id="studentsTable" dataContainer="studentsDc" width="100%" height="200px">
+                <table id="studentsTable" dataContainer="studentsDc" width="100%" height="200px" multiselect="true">
                     <actions>
                         <action id="add" type="add"/>
                         <action id="exclude" type="exclude"/>

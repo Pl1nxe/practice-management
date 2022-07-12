@@ -1,0 +1,117 @@
+<window xmlns="http://jmix.io/schema/ui/window"
+        xmlns:c="http://jmix.io/schema/ui/jpql-condition"
+        caption="msg://testEventScreen.caption"
+        focusComponent="table">
+    <data>
+        <collection id="eventsDc"
+                    class="ru.haulmont.management.practice.entity.Event">
+            <fetchPlan extends="_base">
+                <property name="students" fetchPlan="_base"/>
+            </fetchPlan>
+            <loader id="eventsDl">
+                <query>
+                    <![CDATA[select e from Event e]]>
+                </query>
+            </loader>
+        </collection>
+        <instance id="eventDc"
+                  class="ru.haulmont.management.practice.entity.Event">
+            <fetchPlan extends="_base">
+                <property name="students" fetchPlan="_base"/>
+            </fetchPlan>
+            <loader/>
+            <collection id="studentsDc" property="students"/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="save" icon="OK" caption="msg:///actions.Ok" shortcut="CTRL-ENTER"/>
+        <action id="cancel" icon="CANCEL" caption="msg:///actions.Cancel" description="Esc"/>
+    </actions>
+    <dialogMode height="600" width="800"/>
+    <layout>
+        <split id="split" height="100%" orientation="horizontal" reversePosition="true" width="100%">
+            <vbox id="lookupBox" expand="table" height="100%" margin="false,true,false,false" spacing="true">
+                <filter id="filter" dataLoader="eventsDl">
+                    <properties include=".*"/>
+                </filter>
+                <groupTable id="table"
+                            width="100%"
+                            dataContainer="eventsDc">
+                    <actions>
+                        <action id="create" type="create"/>
+                        <action id="edit" type="edit"/>
+                        <action id="remove" type="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="format"/>
+                        <column id="description"/>
+                        <column id="location"/>
+                        <column id="startDate"/>
+                        <column id="endDate"/>
+                    </columns>
+                    <simplePagination/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtn" action="table.create"/>
+                        <button id="editBtn" action="table.edit"/>
+                        <button id="removeBtn" action="table.remove"/>
+                    </buttonsPanel>
+                </groupTable>
+                <hbox id="lookupActions" spacing="true" visible="false">
+                    <button action="lookupSelectAction"/>
+                    <button action="lookupCancelAction"/>
+                </hbox>
+            </vbox>
+            <vbox id="editBox" height="100%" margin="false,false,false,true" expand="tabSheetBox" spacing="true">
+                <vbox id="tabSheetBox">
+                    <tabSheet id="tabSheet" height="100%">
+                        <tab id="mainTab" caption="msg://event.editorMainTab.caption" margin="true">
+                            <scrollBox id="fieldGroupBox"
+                                       height="100%">
+                                <form id="form" dataContainer="eventDc">
+                                    <column width="350px">
+                                        <comboBox id="formatField" property="format"/>
+                                        <textField id="descriptionField" property="description"/>
+                                        <textField id="locationField" property="location"/>
+                                        <dateField id="startDateField" property="startDate"/>
+                                        <dateField id="endDateField" property="endDate"/>
+                                    </column>
+                                </form>
+                            </scrollBox>
+                        </tab>
+                        <tab id="studentsTab" caption="msg://ru.haulmont.management.practice.entity/Event.students"
+                             margin="true,false,false,false">
+                            <table id="studentsTable" dataContainer="studentsDc" width="100%" height="200px">
+                                <actions>
+                                    <action id="add" type="add"/>
+                                    <action id="exclude" type="exclude"/>
+                                </actions>
+                                <columns>
+                                    <column id="fullName"/>
+                                    <column id="practicalTask"/>
+                                    <column id="university"/>
+                                    <column id="specialization"/>
+                                    <column id="group"/>
+                                    <column id="startDate"/>
+                                    <column id="endDate"/>
+                                </columns>
+                                <buttonsPanel>
+                                    <button action="studentsTable.add"/>
+                                    <button action="studentsTable.exclude"/>
+                                </buttonsPanel>
+                            </table>
+                        </tab>
+                    </tabSheet>
+                </vbox>
+                <hbox id="actionsPane" spacing="true" visible="false">
+                    <button id="saveBtn" action="save"/>
+                    <button id="cancelBtn" action="cancel"/>
+                </hbox>
+            </vbox>
+        </split>
+    </layout>
+</window>
