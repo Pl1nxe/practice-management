@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="1" author="practice-management-jmix-project">
+        <loadData encoding="UTF-8"
+                  file="ru/haulmont/management/practice/liquibase/changelog/data/files/student"
+                  tableName="STUDENT" separator=";">
+            <column name="ID" type="UUID"/>
+            <column name="PRACTICAL_TASK" type="VARCHAR(1024)"/>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+            <column name="FULL_NAME" type="VARCHAR(255)"/>
+            <column name="UNIVERSITY" type="VARCHAR(255)"/>
+            <column name="SPECIALIZATION" type="VARCHAR(255)"/>
+            <column name="GROUP_" type="VARCHAR(255)"/>
+            <column name="START_DATE" type="DATETIME"/>
+            <column name="END_DATE" type="DATETIME"/>
+            <column name="VERSION" type="INT"/>
+        </loadData>
+
+        <loadData encoding="UTF-8"
+                  file="ru/haulmont/management/practice/liquibase/changelog/data/files/event"
+                  tableName="EVENT" separator=";">
+            <column name="ID" type="UUID"/>
+            <column name="FORMAT" type="VARCHAR(255)"/>
+            <column name="DESCRIPTION" type="VARCHAR(255)"/>
+            <column name="LOCATION" type="VARCHAR(255)"/>
+            <column name="START_DATE" type="DATETIME"/>
+            <column name="END_DATE" type="DATETIME"/>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+            <column name="VERSION" type="INT"/>
+        </loadData>
+
+        <loadData encoding="UTF-8"
+                  file="ru/haulmont/management/practice/liquibase/changelog/data/files/event_student_link"
+                  tableName="EVENT_STUDENT_LINK" separator=";">
+            <column name="EVENT_ID" type="UUID"/>
+            <column name="STUDENT_ID" type="UUID"/>
+        </loadData>
+    </changeSet>
+</databaseChangeLog>
